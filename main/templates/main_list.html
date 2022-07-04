@@ -1,0 +1,34 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ESP21monitoring</title>
+    <style type="text/css">
+    div.info{
+        border: 2px dotted black;
+        margin: 5px;
+        padding: 5px;
+        display: inline-block;
+        border-radius: 10px;
+        position: relative;
+        text-align: center;
+    }
+    }
+    }
+  </style>
+</head>
+<body>
+    <h1>ESP32monitoring</h1>
+    <div class="conteiner">
+        {% for m in object_list %}
+            <div class="info">
+                <p>{{m.sensor}}</p>
+                <p>{{m.date}}
+                <p>{{m.value}}
+                <p><a href="{% url 'mon-del' m.id%}">del</a>
+            </div>
+        {%endfor%}
+    </div>
+</body>
+</html>
